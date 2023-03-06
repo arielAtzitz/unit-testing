@@ -5,12 +5,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class ExternalDisplay {
 
-	Boolean on;
-	String externalShow;
+	Boolean on=false;
+	String externalShow="";
 
-	public String show(String text) {
+	public void setExternalShow(String text) {
 		this.externalShow = text;
-		return text;
+	}
+
+	public String getExternalShow() {
+		return this.externalShow;
 	}
 
 	public Boolean isOn() {

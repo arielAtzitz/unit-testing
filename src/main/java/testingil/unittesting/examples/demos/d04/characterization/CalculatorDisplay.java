@@ -14,7 +14,7 @@ public class CalculatorDisplay {
 	Boolean shouldReset = true;
 	OperationType lastOperation;
 
-	public String press(String key) {
+	public void press(String key) {
 		if (key.equals("+")) {
 			lastOperation = OperationType.Plus;
 			lastArgument = Integer.parseInt(display);
@@ -45,7 +45,7 @@ public class CalculatorDisplay {
 				display += key;
 			}
 		}
-		return showDisplay();
+		showExternDisplay();
 	}
 
 	public String getDisplay() {
@@ -56,10 +56,13 @@ public class CalculatorDisplay {
 		return display;
 	}
 
-	public String showDisplay() {
+	public void showExternDisplay() {
 		if (externalDisplay.isOn()) {
-			externalDisplay.show(display);
+			externalDisplay.setExternalShow(display);
 		}
-		return display;
+	}
+
+	public String getExternDisplay() {
+		return externalDisplay.getExternalShow();
 	}
 }
